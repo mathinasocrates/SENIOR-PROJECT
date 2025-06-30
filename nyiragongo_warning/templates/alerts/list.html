@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Active Alerts - Mount Nyiragongo Early Warning System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1><i class="fas fa-exclamation-triangle text-warning"></i> Active Alerts</h1>
+                <a href="/alerts/subscribe/" class="btn btn-primary">
+                    <i class="fas fa-bell"></i> Subscribe to Alerts
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    {% if alerts %}
+    <div class="row">
+        {% for alert in alerts %}
+        <div class="col-lg-6 mb-4">
+            <div class="card border-{% if alert.priority == 'critical' %}danger{% elif alert.priority == 'high' %}warning{% elif alert.priority == 'medium' %}info{% else %}secondary{% endif %}">
+                <div class="card-header bg-{% if alert.priority == 'critical' %}danger{% elif alert.priority == 'high' %}warning{% elif alert.priority == 'medium' %}info{% else %}secondary{% endif %} text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            {% if alert.alert_type == 'eruption' %}
+                                <i class="fas fa-mountain"></i>
+                            {% elif alert.alert_type == 'evacuation' %}
+                                <i class="fas fa-route"></i>
+                            {% elif alert.alert_type == 'advisory' %}
+                                <i class="fas fa-info-circle"></i>
+                            {% else %}
+                                <i class="fas fa-check-circle"></i>
+                            {% endif %}
+                            {{ alert.title }}
+                        </h5>
+                        <span class="badge bg-light text-dark">{{ alert.priority|upper }}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ alert.message }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            <i class="fas fa-clock"></i> {{ alert.created_at|date:"M d, Y H:i" }}
+                        </small>
+                        {% if alert.alert_type == 'evacuation' %}
+                        <a href="/education/" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-map"></i> Evacuation Routes
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-check-circle text-success fa-4x mb-3"></i>
+                    <h3 class="text-success">All Clear</h3>
+                    <p class="lead">No active alerts at this time. The monitoring system is operating normally.</p>
+                    <a href="/" class="btn btn-primary">View Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Emergency Contacts -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="emergency-contact">
+                <h4><i class="fas fa-phone"></i> Emergency Contacts</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Emergency Services:</strong><br>
+                        <i class="fas fa-phone"></i> 911
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Disaster Management:</strong><br>
+                        <i class="fas fa-phone"></i> +243-XXX-XXXX
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Alert System:</strong><br>
+                        <i class="fas fa-envelope"></i> alerts@nyiragongo.org
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

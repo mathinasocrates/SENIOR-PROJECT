@@ -1,0 +1,10 @@
+./venv/
+venv
+venv/
+__pycache__
+./__pycache__/
+__pycache__/
+
+_pycache_/
+./_pycache_/
+/_pycache_/

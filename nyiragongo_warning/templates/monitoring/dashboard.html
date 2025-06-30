@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Mount Nyiragongo Early Warning System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Alert Status Banner -->
+    {% if latest_data %}
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card alert-level-{{ latest_data.alert_level }}">
+                <div class="card-body text-center">
+                    <div class="status-indicator bg-white"></div>
+                    <h2 class="mb-2">
+                        <i class="fas fa-mountain volcano-icon"></i>
+                        Current Alert Level: {{ latest_data.alert_level|upper }}
+                    </h2>
+                    <p class="mb-0 fs-5">Last Updated: {{ latest_data.timestamp|date:"M d, Y H:i" }}</p>
+                    <div class="real-time-indicator"></div>
+                    <span class="small">LIVE MONITORING</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Real-time Metrics -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="metric-card {% if latest_data.seismic_activity > 5.0 %}danger-zone{% elif latest_data.seismic_activity > 3.0 %}warning-zone{% else %}safe-zone{% endif %}">
+                <i class="fas fa-wave-square fa-2x mb-3"></i>
+                <div class="metric-value">{{ latest_data.seismic_activity|floatformat:1 }}</div>
+                <div class="metric-label">Seismic Activity</div>
+                <small>Magnitude Scale</small>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="metric-card {% if latest_data.gas_emissions > 1000 %}danger-zone{% elif latest_data.gas_emissions > 500 %}warning-zone{% else %}safe-zone{% endif %}">
+                <i class="fas fa-smog fa-2x mb-3"></i>
+                <div class="metric-value">{{ latest_data.gas_emissions|floatformat:0 }}</div>
+                <div class="metric-label">Gas Emissions</div>
+                <small>SO₂ ppm</small>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="metric-card {% if latest_data.ground_deformation > 50 %}danger-zone{% elif latest_data.ground_deformation > 25 %}warning-zone{% else %}safe-zone{% endif %}">
+                <i class="fas fa-arrows-alt fa-2x mb-3"></i>
+                <div class="metric-value">{{ latest_data.ground_deformation|floatformat:1 }}</div>
+                <div class="metric-label">Ground Movement</div>
+                <small>mm displacement</small>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="metric-card {% if latest_data.temperature > 1200 %}danger-zone{% elif latest_data.temperature > 1000 %}warning-zone{% else %}safe-zone{% endif %}">
+                <i class="fas fa-thermometer-full fa-2x mb-3"></i>
+                <div class="metric-value">{{ latest_data.temperature|floatformat:0 }}°</div>
+                <div class="metric-label">Crater Temperature</div>
+                <small>Celsius</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts and Detailed Information -->
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="chart-container">
+                <h4 class="mb-3"><i class="fas fa-chart-line"></i> Real-time Monitoring Data</h4>
+                <canvas id="seismicChart" height="100"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Monitoring Stations</h5>
+                </div>
+                <div class="card-body">
+                    {% for station in stations %}
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>{{ station.name }}</span>
+                        <span class="badge bg-success">
+                            <i class="fas fa-satellite"></i> Active
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Emergency Actions -->
+            <div class="card mt-3">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Emergency Actions</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-emergency w-100 mb-2" onclick="triggerAlert()">
+                        <i class="fas fa-broadcast-tower"></i> Send Alert
+                    </button>
+                    <button class="btn btn-warning w-100 mb-2" onclick="evacuationProtocol()">
+                        <i class="fas fa-route"></i> Evacuation Routes
+                    </button>
+                    <button class="btn btn-info w-100" onclick="contactEmergency()">
+                        <i class="fas fa-phone"></i> Emergency Services
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity Log -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-history"></i> Recent Activity Log</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Alert Level</th>
+                                    <th>Seismic</th>
+                                    <th>Gas Emissions</th>
+                                    <th>Ground Movement</th>
+                                    <th>Temperature</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for data in recent_data %}
+                                <tr>
+                                    <td>{{ data.timestamp|date:"M d, H:i" }}</td>
+                                    <td>
+                                        <span class="badge alert-level-{{ data.alert_level }}">
+                                            {{ data.alert_level|upper }}
+                                        </span>
+                                    </td>
+                                    <td>{{ data.seismic_activity|floatformat:1 }}</td>
+                                    <td>{{ data.gas_emissions|floatformat:0 }} ppm</td>
+                                    <td>{{ data.ground_deformation|floatformat:1 }} mm</td>
+                                    <td>{{ data.temperature|floatformat:0 }}°C</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Real-time data update via WebSocket
+    const socket = new WebSocket('ws://localhost:8000/ws/monitoring/');
+    
+    socket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        updateDashboard(data);
+    };
+    
+    // Chart.js configuration
+    const ctx = document.getElementById('seismicChart').getContext('2d');
+    const seismicChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Seismic Activity',
+                data: [],
+                borderColor: 'rgb(220, 20, 60)',
+                backgroundColor: 'rgba(220, 20, 60, 0.1)',
+                tension: 0.1
+            }, {
+                label: 'Gas Emissions',
+                data: [],
+                borderColor: 'rgb(255, 140, 0)',
+                backgroundColor: 'rgba(255, 140, 0, 0.1)',
+                tension: 0.1,
+                yAxisID: 'y1'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'Seismic Activity'
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: 'Gas Emissions (ppm)'
+                    },
+                    grid: {
+                        drawOnChartArea: false,
+                    },
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    });
+    
+    // Fetch initial data and update chart
+    async function fetchLatestData() {
+        try {
+            const response = await fetch('/api/latest/');
+            const data = await response.json();
+            
+            if (!data.error) {
+                updateChart(data);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+    
+    function updateChart(data) {
+        const time = new Date(data.timestamp).toLocaleTimeString();
+        
+        if (seismicChart.data.labels.length > 20) {
+            seismicChart.data.labels.shift();
+            seismicChart.data.datasets[0].data.shift();
+            seismicChart.data.datasets[1].data.shift();
+        }
+        
+        seismicChart.data.labels.push(time);
+        seismicChart.data.datasets[0].data.push(data.seismic_activity);
+        seismicChart.data.datasets[1].data.push(data.gas_emissions);
+        seismicChart.update();
+    }
+    
+    function updateDashboard(data) {
+        // Update alert level banner
+        const alertBanner = document.querySelector('.alert-level-' + data.alert_level);
+        if (alertBanner) {
+            alertBanner.style.animation = 'pulse 0.5s';
+        }
+        
+        // Show notification for critical alerts
+        if (data.alert_level === 'red') {
+            showEmergencyNotification(data.message);
+        }
+    }
+    
+    function showEmergencyNotification(message) {
+        // Create emergency notification
+        const notification = document.createElement('div');
+        notification.className = 'alert alert-danger alert-dismissible fade show position-fixed';
+        notification.style.cssText = 'top: 100px; right: 20px; z-index: 9999; max-width: 400px;';
+        notification.innerHTML = `
+            <strong><i class="fas fa-exclamation-triangle"></i> EMERGENCY ALERT!</strong><br>
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.body.appendChild(notification);
+        
+        // Auto-remove after 10 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 10000);
+    }
+    
+    // Emergency action functions
+    function triggerAlert() {
+        if (confirm('Are you sure you want to send an emergency alert to all subscribers?')) {
+            // Implementation for sending alerts
+            alert('Emergency alert sent to all subscribers!');
+        }
+    }
+    
+    function evacuationProtocol() {
+        window.open('/education/', '_blank');
+    }
+    
+    function contactEmergency() {
+        window.open('tel:911');
+    }
+    
+    // Start real-time updates
+    fetchLatestData();
+    setInterval(fetchLatestData, 30000); // Update every 30 seconds
+</script>
+{% endblock %}

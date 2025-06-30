@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}Subscribe to Alerts - Mount Nyiragongo Early Warning System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0"><i class="fas fa-bell"></i> Subscribe to Emergency Alerts</h3>
+                </div>
+                <div class="card-body">
+                    <p class="lead">Stay informed about volcanic activity and receive immediate alerts on your mobile device.</p>
+                    
+                    <form id="subscriptionForm">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="phone_number" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
+                                <small class="form-text text-muted">Include country code (e.g., +243XXXXXXXXX)</small>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Your Location *</label>
+                            <select class="form-control" id="location" name="location" required>
+                                <option value="">Select your area...</option>
+                                <option value="goma">Goma City Center</option>
+                                <option value="goma_north">Goma North</option>
+                                <option value="goma_south">Goma South</option>
+                                <option value="gisenyi">Gisenyi</option>
+                                <option value="sake">Sake</option>
+                                <option value="rutshuru">Rutshuru</option>
+                                <option value="other">Other (High Risk Zone)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to receive emergency alerts and understand that message rates may apply
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-bell"></i> Subscribe to Alerts
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Alert Types Information -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-info-circle"></i> Alert Types You'll Receive</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-danger">
+                                <strong><i class="fas fa-exclamation-triangle"></i> Critical Alerts</strong><br>
+                                Imminent eruption warnings and evacuation orders
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-warning">
+                                <strong><i class="fas fa-eye"></i> Watch Alerts</strong><br>
+                                Elevated volcanic activity requiring attention
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-info">
+                                <strong><i class="fas fa-info"></i> Advisory Notices</strong><br>
+                                General updates and safety reminders
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-success">
+                                <strong><i class="fas fa-check"></i> All Clear</strong><br>
+                                End of alert conditions and return to normal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        fetch('/alerts/subscribe/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Successfully subscribed to alerts!');
+                this.reset();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        });
+    });
+</script>
+{% endblock %}
+                    

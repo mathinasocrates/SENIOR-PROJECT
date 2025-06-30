@@ -1,0 +1,702 @@
+[
+  {
+    "seismic_activity": 2.48,
+    "gas_emissions": 335.8,
+    "ground_deformation": 11.8,
+    "temperature": 771.9,
+    "timestamp": "2025-06-30T17:05:39.042230"
+  },
+  {
+    "seismic_activity": 2.22,
+    "gas_emissions": 437.7,
+    "ground_deformation": 11.2,
+    "temperature": 808.8,
+    "timestamp": "2025-06-30T17:05:41.654126"
+  },
+  {
+    "seismic_activity": 2.21,
+    "gas_emissions": 390.7,
+    "ground_deformation": 12.2,
+    "temperature": 880.5,
+    "timestamp": "2025-06-30T17:05:44.258797"
+  },
+  {
+    "seismic_activity": 2.25,
+    "gas_emissions": 297.1,
+    "ground_deformation": 12.7,
+    "temperature": 881.3,
+    "timestamp": "2025-06-30T17:05:46.833890"
+  },
+  {
+    "seismic_activity": 2.73,
+    "gas_emissions": 290.1,
+    "ground_deformation": 13.3,
+    "temperature": 876.8,
+    "timestamp": "2025-06-30T17:05:49.396855"
+  },
+  {
+    "seismic_activity": 2.74,
+    "gas_emissions": 436.7,
+    "ground_deformation": 15.6,
+    "temperature": 986.1,
+    "timestamp": "2025-06-30T17:05:52.003688"
+  },
+  {
+    "seismic_activity": 3.33,
+    "gas_emissions": 580.1,
+    "ground_deformation": 13.1,
+    "temperature": 1147.0,
+    "timestamp": "2025-06-30T17:05:54.622616"
+  },
+  {
+    "seismic_activity": 2.18,
+    "gas_emissions": 329.2,
+    "ground_deformation": 15.6,
+    "temperature": 807.6,
+    "timestamp": "2025-06-30T17:05:57.308971"
+  },
+  {
+    "seismic_activity": 2.13,
+    "gas_emissions": 489.3,
+    "ground_deformation": 11.0,
+    "temperature": 821.3,
+    "timestamp": "2025-06-30T17:05:59.931674"
+  },
+  {
+    "seismic_activity": 3.41,
+    "gas_emissions": 713.0,
+    "ground_deformation": 22.0,
+    "temperature": 1052.6,
+    "timestamp": "2025-06-30T17:06:02.546223"
+  },
+  {
+    "seismic_activity": 3.49,
+    "gas_emissions": 519.1,
+    "ground_deformation": 18.0,
+    "temperature": 1009.1,
+    "timestamp": "2025-06-30T17:06:05.202542"
+  },
+  {
+    "seismic_activity": 2.38,
+    "gas_emissions": 398.2,
+    "ground_deformation": 21.0,
+    "temperature": 904.2,
+    "timestamp": "2025-06-30T17:06:07.833195"
+  },
+  {
+    "seismic_activity": 2.74,
+    "gas_emissions": 515.9,
+    "ground_deformation": 13.5,
+    "temperature": 996.2,
+    "timestamp": "2025-06-30T17:06:10.467775"
+  },
+  {
+    "seismic_activity": 3.67,
+    "gas_emissions": 802.6,
+    "ground_deformation": 14.0,
+    "temperature": 986.9,
+    "timestamp": "2025-06-30T17:06:13.132149"
+  },
+  {
+    "seismic_activity": 2.66,
+    "gas_emissions": 457.6,
+    "ground_deformation": 12.1,
+    "temperature": 899.5,
+    "timestamp": "2025-06-30T17:06:15.726775"
+  },
+  {
+    "seismic_activity": 3.84,
+    "gas_emissions": 800.1,
+    "ground_deformation": 13.3,
+    "temperature": 1208.4,
+    "timestamp": "2025-06-30T17:06:18.286243"
+  },
+  {
+    "seismic_activity": 3.94,
+    "gas_emissions": 668.4,
+    "ground_deformation": 22.6,
+    "temperature": 1176.7,
+    "timestamp": "2025-06-30T17:06:20.836466"
+  },
+  {
+    "seismic_activity": 3.81,
+    "gas_emissions": 852.8,
+    "ground_deformation": 14.9,
+    "temperature": 1269.9,
+    "timestamp": "2025-06-30T17:06:23.536496"
+  },
+  {
+    "seismic_activity": 10.97,
+    "gas_emissions": 1018.2,
+    "ground_deformation": 12.5,
+    "temperature": 1126.5,
+    "timestamp": "2025-06-30T17:06:26.102333"
+  },
+  {
+    "seismic_activity": 4.33,
+    "gas_emissions": 638.0,
+    "ground_deformation": 22.9,
+    "temperature": 1140.5,
+    "timestamp": "2025-06-30T17:06:28.662960"
+  },
+  {
+    "seismic_activity": 3.11,
+    "gas_emissions": 758.0,
+    "ground_deformation": 20.4,
+    "temperature": 1267.3,
+    "timestamp": "2025-06-30T17:06:31.244511"
+  },
+  {
+    "seismic_activity": 4.3,
+    "gas_emissions": 858.4,
+    "ground_deformation": 14.5,
+    "temperature": 1018.7,
+    "timestamp": "2025-06-30T17:06:33.824797"
+  },
+  {
+    "seismic_activity": 2.87,
+    "gas_emissions": 504.5,
+    "ground_deformation": 17.5,
+    "temperature": 851.2,
+    "timestamp": "2025-06-30T17:06:36.354927"
+  },
+  {
+    "seismic_activity": 3.83,
+    "gas_emissions": 802.9,
+    "ground_deformation": 15.5,
+    "temperature": 1130.2,
+    "timestamp": "2025-06-30T17:06:38.923234"
+  },
+  {
+    "seismic_activity": 3.89,
+    "gas_emissions": 620.6,
+    "ground_deformation": 17.2,
+    "temperature": 1140.2,
+    "timestamp": "2025-06-30T17:06:41.467685"
+  },
+  {
+    "seismic_activity": 4.05,
+    "gas_emissions": 689.6,
+    "ground_deformation": 26.7,
+    "temperature": 1134.7,
+    "timestamp": "2025-06-30T17:06:44.001309"
+  },
+  {
+    "seismic_activity": 3.52,
+    "gas_emissions": 740.0,
+    "ground_deformation": 14.8,
+    "temperature": 1092.3,
+    "timestamp": "2025-06-30T17:06:46.581511"
+  },
+  {
+    "seismic_activity": 3.66,
+    "gas_emissions": 853.8,
+    "ground_deformation": 20.5,
+    "temperature": 1059.8,
+    "timestamp": "2025-06-30T17:06:49.162229"
+  },
+  {
+    "seismic_activity": 3.86,
+    "gas_emissions": 818.0,
+    "ground_deformation": 22.2,
+    "temperature": 1320.5,
+    "timestamp": "2025-06-30T17:06:51.707847"
+  },
+  {
+    "seismic_activity": 4.12,
+    "gas_emissions": 788.1,
+    "ground_deformation": 32.6,
+    "temperature": 1200.3,
+    "timestamp": "2025-06-30T17:06:54.249768"
+  },
+  {
+    "seismic_activity": 4.41,
+    "gas_emissions": 896.6,
+    "ground_deformation": 18.3,
+    "temperature": 1110.1,
+    "timestamp": "2025-06-30T17:06:56.798942"
+  },
+  {
+    "seismic_activity": 3.23,
+    "gas_emissions": 1100.4,
+    "ground_deformation": 17.4,
+    "temperature": 1147.4,
+    "timestamp": "2025-06-30T17:06:59.408559"
+  },
+  {
+    "seismic_activity": 4.71,
+    "gas_emissions": 989.8,
+    "ground_deformation": 15.7,
+    "temperature": 1160.1,
+    "timestamp": "2025-06-30T17:07:01.968763"
+  },
+  {
+    "seismic_activity": 4.39,
+    "gas_emissions": 940.8,
+    "ground_deformation": 36.0,
+    "temperature": 1344.9,
+    "timestamp": "2025-06-30T17:07:04.520238"
+  },
+  {
+    "seismic_activity": 5.63,
+    "gas_emissions": 1024.8,
+    "ground_deformation": 24.6,
+    "temperature": 1298.8,
+    "timestamp": "2025-06-30T17:07:07.177170"
+  },
+  {
+    "seismic_activity": 5.49,
+    "gas_emissions": 857.8,
+    "ground_deformation": 30.5,
+    "temperature": 1355.3,
+    "timestamp": "2025-06-30T17:07:09.757563"
+  },
+  {
+    "seismic_activity": 4.16,
+    "gas_emissions": 843.1,
+    "ground_deformation": 19.2,
+    "temperature": 1284.1,
+    "timestamp": "2025-06-30T17:07:12.305665"
+  },
+  {
+    "seismic_activity": 3.87,
+    "gas_emissions": 899.0,
+    "ground_deformation": 37.9,
+    "temperature": 1259.4,
+    "timestamp": "2025-06-30T17:07:14.865965"
+  },
+  {
+    "seismic_activity": 5.91,
+    "gas_emissions": 778.3,
+    "ground_deformation": 25.7,
+    "temperature": 1200.9,
+    "timestamp": "2025-06-30T17:07:17.417135"
+  },
+  {
+    "seismic_activity": 3.86,
+    "gas_emissions": 1211.6,
+    "ground_deformation": 19.1,
+    "temperature": 1090.5,
+    "timestamp": "2025-06-30T17:07:19.984541"
+  },
+  {
+    "seismic_activity": 3.43,
+    "gas_emissions": 771.9,
+    "ground_deformation": 30.6,
+    "temperature": 1398.3,
+    "timestamp": "2025-06-30T17:07:22.543937"
+  },
+  {
+    "seismic_activity": 3.55,
+    "gas_emissions": 827.1,
+    "ground_deformation": 31.0,
+    "temperature": 1341.1,
+    "timestamp": "2025-06-30T17:07:25.100325"
+  },
+  {
+    "seismic_activity": 4.66,
+    "gas_emissions": 811.1,
+    "ground_deformation": 35.5,
+    "temperature": 1103.9,
+    "timestamp": "2025-06-30T17:07:27.657920"
+  },
+  {
+    "seismic_activity": 4.15,
+    "gas_emissions": 1188.5,
+    "ground_deformation": 38.5,
+    "temperature": 1146.9,
+    "timestamp": "2025-06-30T17:07:30.196057"
+  },
+  {
+    "seismic_activity": 9.31,
+    "gas_emissions": 1110.2,
+    "ground_deformation": 42.1,
+    "temperature": 1250.9,
+    "timestamp": "2025-06-30T17:07:32.764383"
+  },
+  {
+    "seismic_activity": 4.26,
+    "gas_emissions": 1135.0,
+    "ground_deformation": 38.8,
+    "temperature": 1185.4,
+    "timestamp": "2025-06-30T17:07:35.324127"
+  },
+  {
+    "seismic_activity": 4.58,
+    "gas_emissions": 1281.6,
+    "ground_deformation": 36.6,
+    "temperature": 1400.2,
+    "timestamp": "2025-06-30T17:07:37.909754"
+  },
+  {
+    "seismic_activity": 3.77,
+    "gas_emissions": 914.8,
+    "ground_deformation": 38.1,
+    "temperature": 1143.2,
+    "timestamp": "2025-06-30T17:07:40.487805"
+  },
+  {
+    "seismic_activity": 5.1,
+    "gas_emissions": 1153.4,
+    "ground_deformation": 44.4,
+    "temperature": 1169.0,
+    "timestamp": "2025-06-30T17:07:43.030697"
+  },
+  {
+    "seismic_activity": 5.54,
+    "gas_emissions": 1250.7,
+    "ground_deformation": 41.6,
+    "temperature": 1233.5,
+    "timestamp": "2025-06-30T17:07:45.608353"
+  },
+  {
+    "seismic_activity": 4.13,
+    "gas_emissions": 1122.9,
+    "ground_deformation": 37.0,
+    "temperature": 1293.5,
+    "timestamp": "2025-06-30T17:07:48.184246"
+  },
+  {
+    "seismic_activity": 6.63,
+    "gas_emissions": 1269.4,
+    "ground_deformation": 19.9,
+    "temperature": 1243.9,
+    "timestamp": "2025-06-30T17:07:50.732705"
+  },
+  {
+    "seismic_activity": 4.11,
+    "gas_emissions": 1297.7,
+    "ground_deformation": 43.3,
+    "temperature": 1396.0,
+    "timestamp": "2025-06-30T17:07:53.284977"
+  },
+  {
+    "seismic_activity": 5.19,
+    "gas_emissions": 947.5,
+    "ground_deformation": 29.5,
+    "temperature": 1394.7,
+    "timestamp": "2025-06-30T17:07:55.845812"
+  },
+  {
+    "seismic_activity": 6.07,
+    "gas_emissions": 905.2,
+    "ground_deformation": 33.4,
+    "temperature": 1176.8,
+    "timestamp": "2025-06-30T17:07:58.401002"
+  },
+  {
+    "seismic_activity": 4.13,
+    "gas_emissions": 897.2,
+    "ground_deformation": 45.4,
+    "temperature": 1329.8,
+    "timestamp": "2025-06-30T17:08:00.953514"
+  },
+  {
+    "seismic_activity": 4.54,
+    "gas_emissions": 1046.8,
+    "ground_deformation": 37.8,
+    "temperature": 1369.0,
+    "timestamp": "2025-06-30T17:08:03.524897"
+  },
+  {
+    "seismic_activity": 6.35,
+    "gas_emissions": 1015.5,
+    "ground_deformation": 36.1,
+    "temperature": 1262.1,
+    "timestamp": "2025-06-30T17:08:06.095229"
+  },
+  {
+    "seismic_activity": 7.21,
+    "gas_emissions": 1116.4,
+    "ground_deformation": 22.7,
+    "temperature": 1302.5,
+    "timestamp": "2025-06-30T17:08:08.665333"
+  },
+  {
+    "seismic_activity": 6.61,
+    "gas_emissions": 960.5,
+    "ground_deformation": 35.0,
+    "temperature": 1196.1,
+    "timestamp": "2025-06-30T17:08:11.221711"
+  },
+  {
+    "seismic_activity": 7.13,
+    "gas_emissions": 965.5,
+    "ground_deformation": 29.5,
+    "temperature": 1396.1,
+    "timestamp": "2025-06-30T17:08:13.789991"
+  },
+  {
+    "seismic_activity": 7.57,
+    "gas_emissions": 989.1,
+    "ground_deformation": 25.9,
+    "temperature": 1403.6,
+    "timestamp": "2025-06-30T17:08:16.334585"
+  },
+  {
+    "seismic_activity": 7.65,
+    "gas_emissions": 1380.9,
+    "ground_deformation": 35.4,
+    "temperature": 1261.8,
+    "timestamp": "2025-06-30T17:08:18.883039"
+  },
+  {
+    "seismic_activity": 5.06,
+    "gas_emissions": 1307.8,
+    "ground_deformation": 34.7,
+    "temperature": 1328.6,
+    "timestamp": "2025-06-30T17:08:21.465905"
+  },
+  {
+    "seismic_activity": 4.98,
+    "gas_emissions": 1585.8,
+    "ground_deformation": 49.2,
+    "temperature": 1387.1,
+    "timestamp": "2025-06-30T17:08:24.006654"
+  },
+  {
+    "seismic_activity": 6.91,
+    "gas_emissions": 1372.0,
+    "ground_deformation": 30.0,
+    "temperature": 1440.2,
+    "timestamp": "2025-06-30T17:08:26.561707"
+  },
+  {
+    "seismic_activity": 4.53,
+    "gas_emissions": 1092.6,
+    "ground_deformation": 36.0,
+    "temperature": 1432.6,
+    "timestamp": "2025-06-30T17:08:29.112736"
+  },
+  {
+    "seismic_activity": 7.91,
+    "gas_emissions": 1502.5,
+    "ground_deformation": 44.5,
+    "temperature": 1533.8,
+    "timestamp": "2025-06-30T17:08:31.685729"
+  },
+  {
+    "seismic_activity": 6.19,
+    "gas_emissions": 1027.1,
+    "ground_deformation": 47.4,
+    "temperature": 1213.6,
+    "timestamp": "2025-06-30T17:08:34.241259"
+  },
+  {
+    "seismic_activity": 6.27,
+    "gas_emissions": 1174.3,
+    "ground_deformation": 31.4,
+    "temperature": 1248.7,
+    "timestamp": "2025-06-30T17:08:36.790261"
+  },
+  {
+    "seismic_activity": 8.33,
+    "gas_emissions": 1314.4,
+    "ground_deformation": 52.0,
+    "temperature": 1411.4,
+    "timestamp": "2025-06-30T17:08:39.343571"
+  },
+  {
+    "seismic_activity": 5.64,
+    "gas_emissions": 1582.3,
+    "ground_deformation": 37.6,
+    "temperature": 1441.7,
+    "timestamp": "2025-06-30T17:08:41.886067"
+  },
+  {
+    "seismic_activity": 15.48,
+    "gas_emissions": 1898.4,
+    "ground_deformation": 51.3,
+    "temperature": 1276.8,
+    "timestamp": "2025-06-30T17:08:44.429137"
+  },
+  {
+    "seismic_activity": 7.37,
+    "gas_emissions": 1416.3,
+    "ground_deformation": 56.6,
+    "temperature": 1262.3,
+    "timestamp": "2025-06-30T17:08:46.995353"
+  },
+  {
+    "seismic_activity": 5.61,
+    "gas_emissions": 1507.9,
+    "ground_deformation": 47.7,
+    "temperature": 1353.8,
+    "timestamp": "2025-06-30T17:08:49.577938"
+  },
+  {
+    "seismic_activity": 5.94,
+    "gas_emissions": 1460.1,
+    "ground_deformation": 47.2,
+    "temperature": 1392.6,
+    "timestamp": "2025-06-30T17:08:52.158939"
+  },
+  {
+    "seismic_activity": 8.27,
+    "gas_emissions": 1090.8,
+    "ground_deformation": 39.3,
+    "temperature": 1282.3,
+    "timestamp": "2025-06-30T17:08:54.703553"
+  },
+  {
+    "seismic_activity": 8.52,
+    "gas_emissions": 1400.8,
+    "ground_deformation": 28.6,
+    "temperature": 1406.6,
+    "timestamp": "2025-06-30T17:08:57.277488"
+  },
+  {
+    "seismic_activity": 5.84,
+    "gas_emissions": 1258.1,
+    "ground_deformation": 48.8,
+    "temperature": 1463.7,
+    "timestamp": "2025-06-30T17:08:59.838106"
+  },
+  {
+    "seismic_activity": 7.9,
+    "gas_emissions": 1166.4,
+    "ground_deformation": 56.8,
+    "temperature": 1380.1,
+    "timestamp": "2025-06-30T17:09:02.364343"
+  },
+  {
+    "seismic_activity": 18.44,
+    "gas_emissions": 3067.8,
+    "ground_deformation": 60.2,
+    "temperature": 1417.5,
+    "timestamp": "2025-06-30T17:09:04.907044"
+  },
+  {
+    "seismic_activity": 5.23,
+    "gas_emissions": 1541.4,
+    "ground_deformation": 45.8,
+    "temperature": 1445.0,
+    "timestamp": "2025-06-30T17:09:07.478295"
+  },
+  {
+    "seismic_activity": 1.32,
+    "gas_emissions": 158.4,
+    "ground_deformation": 6.5,
+    "temperature": 845.9,
+    "timestamp": "2025-06-30T17:09:10.038943"
+  },
+  {
+    "seismic_activity": 1.5,
+    "gas_emissions": 203.2,
+    "ground_deformation": 6.6,
+    "temperature": 728.5,
+    "timestamp": "2025-06-30T17:09:12.609699"
+  },
+  {
+    "seismic_activity": 1.77,
+    "gas_emissions": 183.8,
+    "ground_deformation": 3.9,
+    "temperature": 803.5,
+    "timestamp": "2025-06-30T17:09:15.149507"
+  },
+  {
+    "seismic_activity": 1.66,
+    "gas_emissions": 197.1,
+    "ground_deformation": 4.4,
+    "temperature": 857.6,
+    "timestamp": "2025-06-30T17:09:17.691572"
+  },
+  {
+    "seismic_activity": 1.43,
+    "gas_emissions": 196.6,
+    "ground_deformation": 4.3,
+    "temperature": 848.4,
+    "timestamp": "2025-06-30T17:09:20.251102"
+  },
+  {
+    "seismic_activity": 1.61,
+    "gas_emissions": 219.2,
+    "ground_deformation": 3.4,
+    "temperature": 881.0,
+    "timestamp": "2025-06-30T17:09:22.979878"
+  },
+  {
+    "seismic_activity": 1.37,
+    "gas_emissions": 195.5,
+    "ground_deformation": 4.7,
+    "temperature": 719.0,
+    "timestamp": "2025-06-30T17:09:25.533845"
+  },
+  {
+    "seismic_activity": 1.34,
+    "gas_emissions": 194.7,
+    "ground_deformation": 5.2,
+    "temperature": 853.0,
+    "timestamp": "2025-06-30T17:09:28.090885"
+  },
+  {
+    "seismic_activity": 1.87,
+    "gas_emissions": 242.6,
+    "ground_deformation": 3.8,
+    "temperature": 776.6,
+    "timestamp": "2025-06-30T17:09:30.641810"
+  },
+  {
+    "seismic_activity": 1.48,
+    "gas_emissions": 162.6,
+    "ground_deformation": 6.9,
+    "temperature": 814.0,
+    "timestamp": "2025-06-30T17:09:33.198696"
+  },
+  {
+    "seismic_activity": 2.24,
+    "gas_emissions": 246.1,
+    "ground_deformation": 5.2,
+    "temperature": 750.3,
+    "timestamp": "2025-06-30T17:09:35.791025"
+  },
+  {
+    "seismic_activity": 2.06,
+    "gas_emissions": 187.8,
+    "ground_deformation": 6.6,
+    "temperature": 834.2,
+    "timestamp": "2025-06-30T17:09:38.349724"
+  },
+  {
+    "seismic_activity": 2.17,
+    "gas_emissions": 162.2,
+    "ground_deformation": 7.0,
+    "temperature": 882.0,
+    "timestamp": "2025-06-30T17:09:40.891592"
+  },
+  {
+    "seismic_activity": 2.21,
+    "gas_emissions": 192.8,
+    "ground_deformation": 4.6,
+    "temperature": 765.3,
+    "timestamp": "2025-06-30T17:09:43.434560"
+  },
+  {
+    "seismic_activity": 1.69,
+    "gas_emissions": 216.1,
+    "ground_deformation": 4.7,
+    "temperature": 716.1,
+    "timestamp": "2025-06-30T17:09:45.965471"
+  },
+  {
+    "seismic_activity": 1.62,
+    "gas_emissions": 225.2,
+    "ground_deformation": 6.7,
+    "temperature": 845.3,
+    "timestamp": "2025-06-30T17:09:48.521963"
+  },
+  {
+    "seismic_activity": 2.15,
+    "gas_emissions": 240.9,
+    "ground_deformation": 4.3,
+    "temperature": 828.6,
+    "timestamp": "2025-06-30T17:09:51.056661"
+  },
+  {
+    "seismic_activity": 1.67,
+    "gas_emissions": 233.9,
+    "ground_deformation": 6.4,
+    "temperature": 894.4,
+    "timestamp": "2025-06-30T17:09:53.608051"
+  }
+]
