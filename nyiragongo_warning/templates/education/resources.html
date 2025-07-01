@@ -1,0 +1,1324 @@
+<!-- EDUCATION RESOURCES TEMPLATE -->
+<!-- templates/education/resources.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources - Mount Nyiragongo Early Warning System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --volcanic-red: #DC143C;
+            --warning-orange: #FF8C00;
+            --advisory-yellow: #FFD700;
+            --safe-green: #228B22;
+            --bg-dark: #1a1a1a;
+            --text-light: #f8f9fa;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .education-hero {
+            background: linear-gradient(135deg, var(--volcanic-red), #B22222);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .resource-card {
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .resource-category {
+            background: linear-gradient(135deg, var(--warning-orange), #FF7F50);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .evacuation-route {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .safety-tip {
+            background: linear-gradient(135deg, var(--safe-green), #32CD32);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, var(--warning-orange), #FF7F50);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #FF4500;
+        }
+        
+        .emergency-steps {
+            background: linear-gradient(135deg, #feca57, #ff9ff3);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .btn-download {
+            background: linear-gradient(135deg, var(--safe-green), #32CD32);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(34, 139, 34, 0.4);
+        }
+        
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--volcanic-red), #B22222);
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--volcanic-red);
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--volcanic-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--advisory-yellow);
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-mountain text-danger"></i>
+                Mount Nyiragongo Alert System
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/alerts/">
+                            <i class="fas fa-exclamation-triangle"></i> Alerts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/education/">
+                            <i class="fas fa-graduation-cap"></i> Education
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/alerts/subscribe/">
+                            <i class="fas fa-bell"></i> Subscribe
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="education-hero" style="margin-top: 80px;">
+        <div class="container">
+            <h1 class="display-4 mb-3">
+                <i class="fas fa-graduation-cap"></i>
+                Volcanic Safety Education
+            </h1>
+            <p class="lead">Learn how to protect yourself and your family from volcanic hazards</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Featured Resources -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="mb-4"><i class="fas fa-star text-warning"></i> Featured Resources</h2>
+            </div>
+            
+            <!-- Emergency Evacuation Guide -->
+            <div class="col-lg-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#evacuationModal">
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured
+                    </div>
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Emergency Preparedness</div>
+                        <h4><i class="fas fa-route text-danger"></i> Complete Evacuation Guide</h4>
+                        <p>Step-by-step instructions for emergency evacuation procedures, evacuation routes, and safe assembly points.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-muted"><i class="fas fa-clock"></i> 15 min read</span>
+                            <button class="btn btn-download btn-sm">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Volcanic Hazards Guide -->
+            <div class="col-lg-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#hazardsModal">
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured
+                    </div>
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Safety Information</div>
+                        <h4><i class="fas fa-exclamation-triangle text-warning"></i> Understanding Volcanic Hazards</h4>
+                        <p>Comprehensive guide to volcanic hazards including lava flows, ash falls, toxic gases, and pyroclastic flows.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-muted"><i class="fas fa-clock"></i> 20 min read</span>
+                            <button class="btn btn-download btn-sm">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Resources -->
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-4"><i class="fas fa-book text-primary"></i> All Educational Resources</h2>
+            </div>
+            
+            <!-- Family Emergency Plan -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#familyPlanModal">
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Family Safety</div>
+                        <h5><i class="fas fa-users text-success"></i> Family Emergency Plan</h5>
+                        <p>Create a comprehensive family emergency plan including communication strategies and meeting points.</p>
+                        <span class="text-muted"><i class="fas fa-clock"></i> 10 min read</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emergency Kit Checklist -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#emergencyKitModal">
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Preparedness</div>
+                        <h5><i class="fas fa-box text-info"></i> Emergency Kit Checklist</h5>
+                        <p>Essential items every household should have ready for volcanic emergencies.</p>
+                        <span class="text-muted"><i class="fas fa-clock"></i> 8 min read</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Health Protection -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#healthModal">
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Health & Safety</div>
+                        <h5><i class="fas fa-heartbeat text-danger"></i> Health Protection Guide</h5>
+                        <p>Protecting your health from volcanic ash, gases, and other health hazards.</p>
+                        <span class="text-muted"><i class="fas fa-clock"></i> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Children's Safety -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#childrenModal">
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Child Safety</div>
+                        <h5><i class="fas fa-child text-warning"></i> Protecting Children</h5>
+                        <p>Special considerations for keeping children safe during volcanic emergencies.</p>
+                        <span class="text-muted"><i class="fas fa-clock"></i> 15 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Continuity -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#businessModal">
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Business</div>
+                        <h5><i class="fas fa-building text-primary"></i> Business Continuity</h5>
+                        <p>Guidelines for businesses to prepare for and respond to volcanic emergencies.</p>
+                        <span class="text-muted"><i class="fas fa-clock"></i> 18 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Response -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card" data-bs-toggle="modal" data-bs-target="#communityModal">
+                    <div class="card-body">
+                        <div class="resource-category mb-3">Community</div>
+                        <h5><i class="fas fa-hands-helping text-success"></i> Community Response</h5>
+                        <p>How communities can work together to enhance safety and preparedness.</p>
+                        <span class="text-muted"><i class="fas fa-clock"></i> 14 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Action Cards -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="mb-4"><i class="fas fa-bolt text-warning"></i> Quick Action Guides</h2>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> If You Feel an Earthquake</h4>
+                    <ol class="mb-0">
+                        <li><strong>DROP</strong> to your hands and knees</li>
+                        <li><strong>TAKE COVER</strong> under a desk or table</li>
+                        <li><strong>HOLD ON</strong> to your shelter</li>
+                        <li>Stay away from windows and heavy objects</li>
+                        <li>After shaking stops, evacuate if instructed</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="emergency-steps">
+                    <h4><i class="fas fa-running"></i> If Evacuation Order is Given</h4>
+                    <ol class="mb-0">
+                        <li>Grab your emergency kit immediately</li>
+                        <li>Follow designated evacuation routes</li>
+                        <li>Do NOT return for belongings</li>
+                        <li>Head to nearest assembly point</li>
+                        <li>Report to emergency personnel</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Evacuation Modal -->
+    <div class="modal fade" id="evacuationModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-route"></i> Complete Evacuation Guide</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="evacuation-route">
+                        <h4><i class="fas fa-map-marked-alt"></i> Evacuation Routes from Goma</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Primary Route (North)</h6>
+                                <ul>
+                                    <li>Avenue de l'Indépendance → North</li>
+                                    <li>Cross Nyira Bridge</li>
+                                    <li>Continue to Sake (Safe Zone)</li>
+                                    <li>Distance: 27 km</li>
+                                    <li>Time: 45-60 minutes</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Secondary Route (West)</h6>
+                                <ul>
+                                    <li>Avenue du 24 Novembre → West</li>
+                                    <li>Cross into Rwanda (Gisenyi)</li>
+                                    <li>Head to Rubavu Safe Zone</li>
+                                    <li>Distance: 15 km</li>
+                                    <li>Time: 30-45 minutes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5 class="mt-4"><i class="fas fa-list-ol"></i> Evacuation Steps</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div>
+                                <h6>Immediate Response (0-5 minutes)</h6>
+                                <ul>
+                                    <li>Stay calm and alert</li>
+                                    <li>Grab pre-packed emergency bag</li>
+                                    <li>Turn off gas and electricity if time permits</li>
+                                    <li>Gather family members</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div>
+                                <h6>Leave Home (5-10 minutes)</h6>
+                                <ul>
+                                    <li>Exit via designated route</li>
+                                    <li>Help elderly and disabled neighbors</li>
+                                    <li>Do NOT drive if roads are congested</li>
+                                    <li>Walk if necessary - stay together</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div>
+                                <h6>Reach Assembly Point (10-30 minutes)</h6>
+                                <ul>
+                                    <li>Report to emergency personnel</li>
+                                    <li>Provide headcount of your group</li>
+                                    <li>Follow instructions from authorities</li>
+                                    <li>Wait for further evacuation if needed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="safety-tip">
+                        <h6><i class="fas fa-lightbulb"></i> Important Safety Tips</h6>
+                        <ul class="mb-0">
+                            <li><strong>Never return</strong> to evacuated areas until officially cleared</li>
+                            <li><strong>Cover mouth and nose</strong> with cloth if ash is falling</li>
+                            <li><strong>Stay on designated routes</strong> - do not take shortcuts</li>
+                            <li><strong>Help others</strong> but don't endanger yourself</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Full Guide
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volcanic Hazards Modal -->
+    <div class="modal fade" id="hazardsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-exclamation-triangle"></i> Understanding Volcanic Hazards</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5><i class="fas fa-fire"></i> Primary Hazards</h5>
+                    
+                    <div class="warning-box mb-3">
+                        <h6><i class="fas fa-lava"></i> Lava Flows</h6>
+                        <p><strong>What:</strong> Molten rock flowing from the volcano at temperatures up to 1200°C</p>
+                        <p><strong>Danger:</strong> Destroys everything in its path, moves 1-10 km/hour</p>
+                        <p><strong>Protection:</strong> Evacuate immediately - lava flows cannot be stopped</p>
+                    </div>
+                    
+                    <div class="warning-box mb-3">
+                        <h6><i class="fas fa-cloud"></i> Pyroclastic Flows</h6>
+                        <p><strong>What:</strong> Fast-moving currents of hot gas, ash, and volcanic debris</p>
+                        <p><strong>Danger:</strong> Extremely deadly, temperatures up to 800°C, speeds up to 200 km/hour</p>
+                        <p><strong>Protection:</strong> Immediate evacuation - cannot be outrun if close</p>
+                    </div>
+                    
+                    <div class="warning-box mb-3">
+                        <h6><i class="fas fa-smog"></i> Toxic Gases</h6>
+                        <p><strong>What:</strong> Carbon dioxide (CO₂), sulfur dioxide (SO₂), hydrogen sulfide (H₂S)</p>
+                        <p><strong>Danger:</strong> Suffocation, respiratory problems, poisoning</p>
+                        <p><strong>Protection:</strong> Evacuate low-lying areas, use masks, seek higher ground</p>
+                    </div>
+                    
+                    <h5 class="mt-4"><i class="fas fa-wind"></i> Secondary Hazards</h5>
+                    
+                    <div class="emergency-steps">
+                        <h6><i class="fas fa-dust"></i> Volcanic Ash</h6>
+                        <ul>
+                            <li><strong>Health:</strong> Respiratory problems, eye irritation</li>
+                            <li><strong>Infrastructure:</strong> Roof collapse, water contamination</li>
+                            <li><strong>Protection:</strong> Stay indoors, seal windows, use masks</li>
+                        </ul>
+                        
+                        <h6><i class="fas fa-water"></i> Lahars (Volcanic Mudflows)</h6>
+                        <ul>
+                            <li><strong>Formation:</strong> Volcanic debris mixed with water</li>
+                            <li><strong>Danger:</strong> Fast-moving, carries boulders and trees</li>
+                            <li><strong>Protection:</strong> Avoid valleys and drainage areas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="safety-tip">
+                        <h6><i class="fas fa-shield-alt"></i> Early Warning Signs</h6>
+                        <ul class="mb-0">
+                            <li>Increased earthquake activity</li>
+                            <li>Ground deformation and swelling</li>
+                            <li>Changes in gas emissions</li>
+                            <li>New or increased hot springs</li>
+                            <li>Animal behavior changes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Hazards Guide
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Family Plan Modal -->
+    <div class="modal fade" id="familyPlanModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-users"></i> Family Emergency Plan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5><i class="fas fa-phone"></i> Communication Plan</h5>
+                    <div class="emergency-steps mb-4">
+                        <h6>Emergency Contact Information</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Local Emergency Services: <strong>911</strong></li>
+                                    <li>Disaster Management: <strong>+243-XXX-XXXX</strong></li>
+                                    <li>Family Meeting Point 1: <strong>_____________</strong></li>
+                                    <li>Family Meeting Point 2: <strong>_____________</strong></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Out-of-area Contact: <strong>_____________</strong></li>
+                                    <li>School Emergency: <strong>_____________</strong></li>
+                                    <li>Work Emergency: <strong>_____________</strong></li>
+                                    <li>Medical Emergency: <strong>_____________</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-map-marker-alt"></i> Meeting Points</h5>
+                    <div class="warning-box mb-4">
+                        <h6>Choose Two Meeting Points:</h6>
+                        <p><strong>Primary:</strong> Near your home (neighborhood center, school, church)</p>
+                        <p><strong>Secondary:</strong> Outside your neighborhood (community center, relative's home)</p>
+                        <p><strong>Important:</strong> All family members must know both locations</p>
+                    </div>
+                    
+                    <h5><i class="fas fa-tasks"></i> Family Responsibilities</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div>
+                                <h6>Adults</h6>
+                                <ul>
+                                    <li>Grab emergency kits and important documents</li>
+                                    <li>Assist children and elderly family members</li>
+                                    <li>Turn off utilities if time permits</li>
+                                    <li>Follow evacuation routes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div>
+                                <h6>Children (Age-Appropriate)</h6>
+                                <ul>
+                                    <li>Know family meeting points</li>
+                                    <li>Memorize important phone numbers</li>
+                                    <li>Help with younger siblings</li>
+                                    <li>Follow adult instructions immediately</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="safety-tip">
+                        <h6><i class="fas fa-calendar"></i> Practice Your Plan</h6>
+                        <ul class="mb-0">
+                            <li>Review and practice your plan every 6 months</li>
+                            <li>Update contact information regularly</li>
+                            <li>Conduct family evacuation drills</li>
+                            <li>Ensure all family members know the plan</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Plan Template
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Kit Modal -->
+    <div class="modal fade" id="emergencyKitModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-box"></i> Emergency Kit Checklist</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="warning-box mb-4">
+                        <h6><i class="fas fa-clock"></i> 72-Hour Kit</h6>
+                        <p>Your emergency kit should sustain your family for at least 72 hours (3 days) without outside help.</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-6"></div>
+                             <h6><i class="fas fa-tint text-primary"></i> Water & Food</h6>
+                            <ul>
+                                <li>☐ 1 gallon water per person per day (3 gallons total)</li>
+                                <li>☐ Water purification tablets</li>
+                                <li>☐ Non-perishable food (3-day supply)</li>
+                                <li>☐ Can opener (manual)</li>
+                                <li>☐ Baby food/formula (if needed)</li>
+                                <li>☐ Pet food (if applicable)</li>
+                            </ul>
+                            
+                            <h6><i class="fas fa-first-aid-kit text-danger"></i> First Aid & Medicine</h6>
+                            <ul>
+                                <li>☐ First aid kit</li>
+                                <li>☐ Prescription medications (7-day supply)</li>
+                                <li>☐ Pain relievers</li>
+                                <li>☐ Thermometer</li>
+                                <li>☐ Hand sanitizer</li>
+                                <li>☐ Face masks/N95 respirators</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-tools text-warning"></i> Tools & Supplies</h6>
+                            <ul>
+                                <li>☐ Battery-powered or hand crank radio</li>
+                                <li>☐ Flashlight</li>
+                                <li>☐ Extra batteries</li>
+                                <li>☐ Cell phone with chargers</li>
+                                <li>☐ Emergency contact list</li>
+                                <li>☐ Cash in small bills</li>
+                                <li>☐ Emergency whistle</li>
+                                <li>☐ Dust masks</li>
+                                <li>☐ Plastic sheeting and duct tape</li>
+                                <li>☐ Moist towelettes</li>
+                                <li>☐ Garbage bags</li>
+                            </ul>
+                            
+                            <h6><i class="fas fa-file-alt text-info"></i> Important Documents</h6>
+                            <ul>
+                                <li>☐ ID cards/passports (copies)</li>
+                                <li>☐ Insurance policies</li>
+                                <li>☐ Bank records</li>
+                                <li>☐ Medical records</li>
+                                <li>☐ Family photos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-steps mt-4">
+                        <h6><i class="fas fa-baby text-success"></i> Special Needs Items</h6>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <strong>Infants:</strong>
+                                <ul>
+                                    <li>Diapers</li>
+                                    <li>Baby wipes</li>
+                                    <li>Baby bottles</li>
+                                    <li>Pacifiers</li>
+                                    <li>Baby food</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Elderly:</strong>
+                                <ul>
+                                    <li>Extra medications</li>
+                                    <li>Hearing aids/batteries</li>
+                                    <li>Glasses (extra pair)</li>
+                                    <li>Medical equipment</li>
+                                    <li>Comfort items</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Pets:</strong>
+                                <ul>
+                                    <li>Pet food (3-day supply)</li>
+                                    <li>Water bowls</li>
+                                    <li>Leashes/carriers</li>
+                                    <li>Pet medications</li>
+                                    <li>Vaccination records</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="safety-tip">
+                        <h6><i class="fas fa-sync-alt"></i> Kit Maintenance</h6>
+                        <ul class="mb-0">
+                            <li>Check expiration dates every 6 months</li>
+                            <li>Replace water every 6 months</li>
+                            <li>Update documents annually</li>
+                            <li>Test battery-powered equipment regularly</li>
+                            <li>Keep kits in easily accessible locations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Checklist
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Health Protection Modal -->
+    <div class="modal fade" id="healthModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-heartbeat"></i> Health Protection Guide</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5><i class="fas fa-lungs text-danger"></i> Respiratory Protection</h5>
+                    <div class="warning-box mb-4">
+                        <h6>Volcanic Ash Dangers</h6>
+                        <p><strong>Immediate Effects:</strong> Eye, nose, and throat irritation, difficulty breathing</p>
+                        <p><strong>Long-term Effects:</strong> Respiratory illness, especially for those with asthma or heart conditions</p>
+                        <p><strong>Most Vulnerable:</strong> Children, elderly, pregnant women, people with respiratory conditions</p>
+                    </div>
+                    
+                    <div class="emergency-steps mb-4">
+                        <h6><i class="fas fa-mask"></i> Protecting Your Airways</h6>
+                        <ul>
+                            <li><strong>Stay Indoors:</strong> Close all windows and doors</li>
+                            <li><strong>Use Masks:</strong> N95 respirators or multiple layers of cloth</li>
+                            <li><strong>Seal Gaps:</strong> Use tape around windows and doors</li>
+                            <li><strong>Avoid Exercise:</strong> Reduces heavy breathing of contaminated air</li>
+                            <li><strong>Use AC:</strong> Set to recirculate indoor air only</li>
+                        </ul>
+                    </div>
+                    
+                    <h5><i class="fas fa-eye text-primary"></i> Eye Protection</h5>
+                    <div class="safety-tip mb-4">
+                        <h6>If ash gets in your eyes:</h6>
+                        <ul>
+                            <li>Do NOT rub your eyes</li>
+                            <li>Flush with clean water immediately</li>
+                            <li>Use protective eyewear when outside</li>
+                            <li>Remove contact lenses if irritation occurs</li>
+                            <li>Seek medical attention for persistent irritation</li>
+                        </ul>
+                    </div>
+                    
+                    <h5><i class="fas fa-flask text-warning"></i> Gas Exposure</h5>
+                    <div class="warning-box mb-4">
+                        <h6>Dangerous Volcanic Gases</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Carbon Dioxide (CO₂):</strong>
+                                <ul>
+                                    <li>Odorless and colorless</li>
+                                    <li>Heavier than air (settles in low areas)</li>
+                                    <li>Can cause suffocation</li>
+                                    <li><em>Action:</em> Move to higher ground</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Sulfur Dioxide (SO₂):</strong>
+                                <ul>
+                                    <li>Strong, choking odor</li>
+                                    <li>Causes breathing difficulties</li>
+                                    <li>Irritates eyes and throat</li>
+                                    <li><em>Action:</em> Move away from source</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-medkit text-success"></i> Medical Preparedness</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div>
+                                <h6>Before Emergency</h6>
+                                <ul>
+                                    <li>Stock extra medications (2-week supply)</li>
+                                    <li>Keep medical records accessible</li>
+                                    <li>Know location of nearest hospitals</li>
+                                    <li>Identify medical needs of family members</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div>
+                                <h6>During Emergency</h6>
+                                <ul>
+                                    <li>Take medications as prescribed</li>
+                                    <li>Monitor symptoms closely</li>
+                                    <li>Seek immediate help for breathing difficulties</li>
+                                    <li>Keep medical supplies accessible</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div>
+                                <h6>After Emergency</h6>
+                                <ul>
+                                    <li>Continue respiratory protection during cleanup</li>
+                                    <li>Watch for delayed health effects</li>
+                                    <li>Seek medical evaluation if symptoms persist</li>
+                                    <li>Follow public health advisories</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Health Guide
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Children's Safety Modal -->
+    <div class="modal fade" id="childrenModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-child"></i> Protecting Children</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5><i class="fas fa-graduation-cap text-primary"></i> Teaching Children About Volcanic Safety</h5>
+                    <div class="emergency-steps mb-4">
+                        <h6>Age-Appropriate Education</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Ages 3-7:</strong>
+                                <ul>
+                                    <li>Simple safety rules</li>
+                                    <li>Practice "stop, listen, follow"</li>
+                                    <li>Learn family meeting places</li>
+                                    <li>Role-play emergency scenarios</li>
+                                    <li>Use picture books about safety</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Ages 8-17:</strong>
+                                <ul>
+                                    <li>Understand volcanic hazards</li>
+                                    <li>Memorize emergency contacts</li>
+                                    <li>Learn first aid basics</li>
+                                    <li>Practice evacuation routes</li>
+                                    <li>Help prepare emergency kits</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-baby text-info"></i> Special Considerations for Young Children</h5>
+                    <div class="warning-box mb-4">
+                        <h6>Infants and Toddlers (0-3 years)</h6>
+                        <ul>
+                            <li><strong>Evacuation:</strong> Always carry children; don't let them walk</li>
+                            <li><strong>Breathing:</strong> Cover face with damp cloth during ash fall</li>
+                            <li><strong>Comfort:</strong> Bring favorite toys/blankets for emotional security</li>
+                            <li><strong>Feeding:</strong> Extra formula, baby food, and clean water</li>
+                            <li><strong>Medical:</strong> Children's medications and thermometer</li>
+                        </ul>
+                    </div>
+                    
+                    <h5><i class="fas fa-school text-success"></i> School Emergency Plans</h5>
+                    <div class="safety-tip mb-4">
+                        <h6>What Parents Should Know</h6>
+                        <ul>
+                            <li>Know your child's school evacuation plan</li>
+                            <li>Understand school communication methods</li>
+                            <li>Keep emergency contact information updated</li>
+                            <li>Authorize trusted adults to pick up your child</li>
+                            <li>Don't go to school during emergency - follow official instructions</li>
+                        </ul>
+                    </div>
+                    
+                    <h5><i class="fas fa-heart text-danger"></i> Emotional Support</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div>
+                                <h6>Before Emergency</h6>
+                                <ul>
+                                    <li>Discuss safety plans calmly and positively</li>
+                                    <li>Read age-appropriate books about emergencies</li>
+                                    <li>Practice emergency drills as "safety games"</li>
+                                    <li>Reassure children that adults are prepared</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div>
+                                <h6>During Emergency</h6>
+                                <ul>
+                                    <li>Stay calm to help children stay calm</li>
+                                    <li>Explain what's happening in simple terms</li>
+                                    <li>Keep family together when possible</li>
+                                    <li>Maintain routines when safe to do so</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div>
+                                <h6>After Emergency</h6>
+                                <ul>
+                                    <li>Allow children to express their feelings</li>
+                                    <li>Watch for signs of stress or anxiety</li>
+                                    <li>Maintain normal routines as much as possible</li>
+                                    <li>Seek professional help if needed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-steps">
+                        <h6><i class="fas fa-exclamation-triangle"></i> Warning Signs of Stress in Children</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Behavioral Changes:</strong>
+                                <ul>
+                                    <li>Increased clinginess</li>
+                                    <li>Sleep problems or nightmares</li>
+                                    <li>Loss of appetite</li>
+                                    <li>Regression (thumb sucking, bedwetting)</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Emotional Changes:</strong>
+                                <ul>
+                                    <li>Increased anxiety or fears</li>
+                                    <li>Difficulty concentrating</li>
+                                    <li>Withdrawal from activities</li>
+                                    <li>Emotional outbursts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Children's Guide
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Business Continuity Modal -->
+    <div class="modal fade" id="businessModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-building"></i> Business Continuity Planning</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5><i class="fas fa-clipboard-list text-primary"></i> Business Preparedness Checklist</h5>
+                    <div class="warning-box mb-4">
+                        <h6>Essential Business Preparations</h6>
+                        <ul>
+                            <li>☐ Develop comprehensive emergency plan</li>
+                            <li>☐ Train all employees on evacuation procedures</li>
+                            <li>☐ Establish communication protocols</li>
+                            <li>☐ Backup critical data off-site</li>
+                            <li>☐ Secure business insurance coverage</li>
+                            <li>☐ Identify alternative business locations</li>
+                            <li>☐ Create supplier contingency plans</li>
+                            <li>☐ Establish employee contact systems</li>
+                        </ul>
+                    </div>
+                    
+                    <h5><i class="fas fa-users text-success"></i> Employee Safety</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div>
+                                <h6>Before Emergency</h6>
+                                <ul>
+                                    <li>Conduct regular evacuation drills</li>
+                                    <li>Designate floor wardens and safety teams</li>
+                                    <li>Post evacuation routes and assembly points</li>
+                                    <li>Maintain updated employee contact information</li>
+                                    <li>Provide emergency training to all staff</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div>
+                                <h6>During Emergency</h6>
+                                <ul>
+                                    <li>Implement evacuation procedures immediately</li>
+                                    <li>Account for all employees at assembly points</li>
+                                    <li>Communicate with emergency services</li>
+                                    <li>Provide regular updates to employees</li>
+                                    <li>Do not allow re-entry until officially cleared</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div>
+                                <h6>After Emergency</h6>
+                                <ul>
+                                    <li>Assess employee wellbeing</li>
+                                    <li>Evaluate facility damage</li>
+                                    <li>Communicate business status</li>
+                                    <li>Implement recovery operations</li>
+                                    <li>Review and update emergency plans</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-server text-info"></i> Data Protection</h5>
+                    <div class="emergency-steps mb-4">
+                        <h6>Critical Data Backup Strategies</h6>
+                        <ul>
+                            <li><strong>Cloud Storage:</strong> Real-time backup to off-site cloud services</li>
+                            <li><strong>Physical Backups:</strong> Regular data backups stored in safe locations</li>
+                            <li><strong>Documentation:</strong> Hard copies of essential business documents</li>
+                            <li><strong>Financial Records:</strong> Secure backup of financial information</li>
+                            <li><strong>Customer Data:</strong> Protected backup of customer information</li>
+                        </ul>
+                    </div>
+                    
+                    <h5><i class="fas fa-handshake text-warning"></i> Stakeholder Communication</h5>
+                    <div class="safety-tip">
+                        <h6>Communication Plan</h6>
+                        <ul class="mb-0">
+                            <li><strong>Employees:</strong> Emergency notification system, regular updates</li>
+                            <li><strong>Customers:</strong> Service disruption notifications, alternative contacts</li>
+                            <li><strong>Suppliers:</strong> Supply chain impact assessments, alternative arrangements</li>
+                            <li><strong>Media:</strong> Designated spokesperson, prepared statements</li>
+                            <li><strong>Government:</strong> Compliance with emergency directives</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Business Guide
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Response Modal -->
+    <div class="modal fade" id="communityModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-hands-helping"></i> Community Response</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5><i class="fas fa-users-cog text-primary"></i> Community Preparedness</h5>
+                    <div class="emergency-steps mb-4">
+                        <h6>Building Community Resilience</h6>
+                        <ul>
+                            <li><strong>Neighborhood Groups:</strong> Form local emergency response teams</li>
+                            <li><strong>Skills Training:</strong> Organize first aid and emergency response training</li>
+                            <li><strong>Resource Sharing:</strong> Coordinate emergency supplies and equipment</li>
+                            <li><strong>Communication Networks:</strong> Establish local communication systems</li>
+                            <li><strong>Vulnerable Populations:</strong> Identify and plan for elderly, disabled, and isolated residents</li>
+                        </ul>
+                    </div>
+                    
+                    <h5><i class="fas fa-bullhorn text-warning"></i> Community Alert Systems</h5>
+                    <div class="warning-box mb-4">
+                        <h6>Local Warning Methods</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Traditional Methods:</strong>
+                                <ul>
+                                    <li>Sirens and alarms</li>
+                                    <li>Radio broadcasts</li>
+                                    <li>Door-to-door notifications</li>
+                                    <li>Community meetings</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Modern Methods:</strong>
+                                <ul>
+                                    <li>Mobile phone alerts</li>
+                                    <li>Social media networks</li>
+                                    <li>Community apps</li>
+                                    <li>Digital message boards</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-heart text-danger"></i> Mutual Aid and Support</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div>
+                                <h6>Before Emergency</h6>
+                                <ul>
+                                    <li>Identify neighbors who may need assistance</li>
+                                    <li>Share emergency contact information</li>
+                                    <li>Coordinate evacuation plans</li>
+                                    <li>Pool resources for emergency supplies</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div>
+                                <h6>During Emergency</h6>
+                                <ul>
+                                    <li>Check on neighbors, especially vulnerable residents</li>
+                                    <li>Share accurate information</li>
+                                    <li>Coordinate evacuation assistance</li>
+                                    <li>Support emergency responders</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div>
+                                <h6>After Emergency</h6>
+                                <ul>
+                                    <li>Organize community cleanup efforts</li>
+                                    <li>Share resources for recovery</li>
+                                    <li>Provide emotional support to neighbors</li>
+                                    <li>Document lessons learned</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-hands text-success"></i> Volunteer Opportunities</h5>
+                    <div class="safety-tip">
+                        <h6>How to Get Involved</h6>
+                        <ul class="mb-0">
+                            <li><strong>Emergency Services:</strong> Join local volunteer fire or medical teams</li>
+                            <li><strong>Community Groups:</strong> Participate in neighborhood watch programs</li>
+                            <li><strong>Training Programs:</strong> Become certified in first aid and emergency response</li>
+                            <li><strong>Awareness Campaigns:</strong> Help educate community members about volcanic risks</li>
+                            <li><strong>Vulnerable Populations:</strong> Assist elderly or disabled neighbors with preparations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download Community Guide
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-mountain text-danger"></i> Mount Nyiragongo Alert System</h5>
+                    <p>Protecting communities through early warning and education.</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>Emergency Contacts</h6>
+                    <p>
+                        Emergency Services: <strong>1222</strong><br>
+                        Volcano Observatory: <strong>+243-940678910</strong><br>
+                        Disaster Management: <strong>+243-819076450</strong>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 Mount Nyiragongo Early Warning System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Add download functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle download buttons
+            const downloadButtons = document.querySelectorAll('.btn-download');
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the modal title to determine which guide to download
+                    const modal = this.closest('.modal');
+                    const modalTitle = modal.querySelector('.modal-title').textContent;
+                    
+                    // In a real application, this would trigger actual file downloads
+                    alert(`Downloading: ${modalTitle}\n\nThis would download a PDF guide in the actual system.`);
+                });
+            });
+            
+            // Add click tracking for resource cards
+            const resourceCards = document.querySelectorAll('.resource-card');
+            resourceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Add subtle animation effect
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Smooth scrolling for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+        
+        // Add animation on scroll
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+                
+                if (cardTop < window.innerHeight - cardVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize cards with animation-ready state
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+
